@@ -23,15 +23,15 @@ public class WxmenuUtils {
 	private static String urlPrefix = "http://m.51bi.com/";
 	private static Logger log = LoggerFactory.getLogger(WxmenuUtils.class);
 	public static void main(String[] args) throws UnsupportedEncodingException {
-		deleteMenu(1);//红咖社
-		doCreateMenuHks();//红咖社
+		deleteMenu(1);//HKS
+		doCreateMenuHks();//HKS
 	}
 	
 	private static void doCreateMenuHks() throws UnsupportedEncodingException{
 		// 第三方用户唯一凭证
-		String appId = "wxe9341dcc8419a785";
+		String appId = "appId";
 		// 第三方用户唯一凭证密钥
-		String appSecret = "cbbab7ccc66873662c9f9eb6b9ff1ea4";
+		String appSecret = "appSecret";
 
 		// 调用接口获取access_token
 		String token = getAccessToken(appId, appSecret).getString("access_token");
@@ -91,7 +91,7 @@ public class WxmenuUtils {
 	}
 	/**
 	 * 组装菜单数据
-	 * 红咖社
+	 * HKS
 	 * @return
 	 * @throws UnsupportedEncodingException 
 	 */
@@ -123,19 +123,19 @@ public class WxmenuUtils {
 		ViewButton btn21 = new ViewButton();
 		btn21.setName("我的二维码");
 		btn21.setType("view");
-		url2= urlPrefix+"yaoyaole/dist/html/myqrcode/index.html";
+		url2= urlPrefix+"myqrcode/index.html";
 		btn21.setUrl(url.replace("REDIRECT_URI", URLEncoder.encode(url2, "utf-8")));
 		
 		ViewButton btn22 = new ViewButton();
 		btn22.setName("发红包");
 		btn22.setType("view");
-		url2= urlPrefix+"yaoyaole/dist/html/fahongbao/index.html";
+		url2= urlPrefix+"fahongbao/index.html";
 		btn22.setUrl(url.replace("REDIRECT_URI", URLEncoder.encode(url2, "utf-8")));
 		
 		ViewButton btn23 = new ViewButton();
 		btn23.setName("怎么赚钱");
 		btn23.setType("view");
-		url2= urlPrefix + "yaoyaole/dist/html/faq/index.html?stateshow=1";
+		url2= urlPrefix + "faq/index.html?stateshow=1";
 //		btn23.setUrl(url.replace("REDIRECT_URI", url2));
 		btn23.setUrl(url2);
 		
@@ -148,26 +148,26 @@ public class WxmenuUtils {
 		 */
 		ViewButton btn31 = new ViewButton();
 		btn31.setName("账户");
-		url2= urlPrefix+"yaoyaole/dist/html/my/index.html";
+		url2= urlPrefix+"my/index.html";
 		btn31.setType("view");
 		btn31.setUrl(url.replace("REDIRECT_URI", URLEncoder.encode(url2, "utf-8")));
 		
 		ViewButton btn32 = new ViewButton();
 		btn32.setName("我的粉丝");
-		url2= urlPrefix+"yaoyaole/dist/html/zhaopengyou/index.html#myFensi";
+		url2= urlPrefix+"zhaopengyou/index.html#myFensi";
 		btn32.setType("view");
 		btn32.setUrl(url.replace("REDIRECT_URI", URLEncoder.encode(url2, "utf-8")));
 		
 		ViewButton btn33 = new ViewButton();
 		btn33.setName("查看收益");
 		btn33.setType("view");
-		url2= urlPrefix+"yaoyaole/dist/html/shouyi/index.html";
+		url2= urlPrefix+"shouyi/index.html";
 		btn33.setUrl(url.replace("REDIRECT_URI", URLEncoder.encode(url2, "utf-8")));
 		
 		ViewButton btn34 = new ViewButton();
-		btn34.setName("关于红咖社");
+		btn34.setName("关于HKS");
 		btn34.setType("view");
-		url2 = urlPrefix + "yaoyaole/dist/html/about/index.html";
+		url2 = urlPrefix + "about/index.html";
 		btn34.setUrl(url2);
 		
 		ComplexButton mainBtn3 = new ComplexButton();
@@ -202,7 +202,7 @@ public class WxmenuUtils {
 		
 		ViewButton btn12 = new ViewButton();
 		btn12.setName("抢红包");
-		url2= urlPrefix+"yaoyaole/dist/html/pengyouquan/index.html";
+		url2= urlPrefix+"/pengyouquan/index.html";
 		btn12.setType("view");
 		btn12.setUrl(url.replace("REDIRECT_URI", URLEncoder.encode(url2, "utf-8")));
 		
@@ -222,7 +222,7 @@ public class WxmenuUtils {
 		ViewButton mainBtn2 = new ViewButton();
 		mainBtn2.setName("摇一摇");
 		mainBtn2.setType("view");
-		url2= urlPrefix+"yaoyaole/dist/html/yaoyiyao/index.html";
+		url2= urlPrefix+"/index.html";
 		mainBtn2.setUrl(url.replace("REDIRECT_URI", URLEncoder.encode(url2, "utf-8")));
 	
 		/*
@@ -293,19 +293,19 @@ public class WxmenuUtils {
 		return jsonObject;
 	}
 	public static void deleteMenu(int type){
-		if(type==1){ //红咖社
+		if(type==1){ //HKS
 			// 第三方用户唯一凭证
-			String appId = "wxe9341dcc8419a785";//test
+			String appId = "appId";//test
 			// 第三方用户唯一凭证密钥
-			String appSecret = "cbbab7ccc66873662c9f9eb6b9ff1ea4";
+			String appSecret = "secret";
 			
 			String token = getAccessToken(appId, appSecret).getString("access_token");
 			WeixinUtil.deleteMenu(token);
 		}else{// 摇摇乐
 			// 第三方用户唯一凭证
-			String appId = "wx63bbf298061ea9a3";
+			String appId = "wxappId";
 			// 第三方用户唯一凭证密钥
-			String appSecret = "3895dc80569a5bd6715dee5cb7884679";
+			String appSecret = "appSecret";
 			String token = getAccessToken(appId, appSecret).getString("access_token");
 			WeixinUtil.deleteMenu(token);
 		}
